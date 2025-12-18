@@ -4,7 +4,14 @@ import os
 SECRET_KEY = os.environ.get('SECRET_KEY', 'CHANGE_ME_TO_A_COMPLEX_RANDOM_SECRET')
 
 # Өгөгдлийн сангийн холболт (PostgreSQL)
-SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
+database_url = os.environ.get('DATABASE_URL', '')
+# Railway-н PostgreSQL URL postgresql:// -ээр эхэлдэг, psycopg2-д зориулж засах
+if database_url.startswith('postgres://'):
+    database_url = database_url.replace('postgres://', 'postgresql+psycopg2://', 1)
+elif database_url.startswith('postgresql://'):
+    database_url = database_url.replace('postgresql://', 'postgresql+psycopg2://', 1)
+
+SQLALCHEMY_DATABASE_URI = database_url
 
 # Redis cache тохиргоо (сонголттой)
 CACHE_CONFIG = {
