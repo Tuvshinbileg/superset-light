@@ -13,6 +13,12 @@ elif database_url.startswith('postgresql://'):
 
 SQLALCHEMY_DATABASE_URI = database_url
 
+FEATURE_FLAGS = {
+    "EMBEDDED_SUPERSET": True,
+    "DASHBOARD_RBAC": True,
+}
+
+
 # Redis cache тохиргоо (сонголттой)
 CACHE_CONFIG = {
     'CACHE_TYPE': 'RedisCache',
@@ -40,3 +46,7 @@ WTF_CSRF_TIME_LIMIT = None
 
 # Тоон ачааллын тохиргоо
 SUPERSET_WEBSERVER_TIMEOUT = 300
+
+HTTP_HEADERS = {
+    'X-Frame-Options': 'ALLOWALL'
+}
