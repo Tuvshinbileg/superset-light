@@ -1,26 +1,16 @@
-FROM apache/superset:5.0.0
+FROM apache/superset:latest
 
+# Администратор хэрэглэгч үүсгэх
 USER root
 
-# Always install into the SAME python that Superset uses
-RUN python -m pip install --no-cache-dir psycopg2-binary redis
+# Superset тохиргоо хийх
+COPY superset_config.py /app/pythonpath/superset_config.py
 
-RUN apt-get update && apt-get install -y \
-    pkg-config \
-    build-essential \
-    && rm -rf /var/lib/apt/lists/*
-
-RUN pip install psycopg2
-
-
-# Superset config
-COPY superset_config.py /app/superset_config.py
-ENV SUPERSET_CONFIG_PATH=/app/superset_config.py
-
-# Init script
-COPY docker-entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
+# Өгөгдлийн сангийн инициализ хийх скрипт
+COPY init-superset.sh /app/init-superset.sh
+RUN chmod +x /app/init-superset.sh
 
 USER superset
-ENTRYPOINT ["/entrypoint.sh"]
 
+# Эхлүүлэх командууд
+ENTRYPOINT ["/app/init-superset.sh"]
