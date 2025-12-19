@@ -1,11 +1,12 @@
-FROM apache/superset:3.1.0
+FROM apache/superset:5.0.0
 
 USER root
 
 
 # PostgreSQL драйвер нэмж суулгах
 
-RUN pip install psycopg2-binary redis
+
+RUN /app/.venv/bin/pip install --no-cache-dir psycopg2-binary
 
 
 # Superset тохиргоо хийх
