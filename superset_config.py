@@ -50,7 +50,7 @@ SUPERSET_WEBSERVER_TIMEOUT = 300
 TALISMAN_ENABLED=True
 
 HTTP_HEADERS = {
-    "X-Frame-Options": "ALLOW",
+#    "X-Frame-Options": "ALLOW",
 }
 
 CONTENT_SECURITY_POLICY = {
