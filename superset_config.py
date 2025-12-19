@@ -47,7 +47,7 @@ WTF_CSRF_TIME_LIMIT = None
 # Тоон ачааллын тохиргоо
 SUPERSET_WEBSERVER_TIMEOUT = 300
 
-TALISMAN_ENABLED=True
+TALISMAN_ENABLED=False
 
 HTTP_HEADERS = {
     "X-Frame-Options": "ALLOWALL",
