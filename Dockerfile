@@ -6,8 +6,15 @@ USER root
 # PostgreSQL драйвер нэмж суулгах
 
 
-RUN /app/.venv/bin/pip install --no-cache-dir psycopg2-binary
-
+RUN python - <<'EOF'
+import sys, subprocess
+subprocess.check_call([
+    sys.executable, "-m", "pip", "install",
+    "--no-cache-dir",
+    "psycopg2-binary",
+    "redis"
+])
+EOF
 
 # Superset тохиргоо хийх
 
