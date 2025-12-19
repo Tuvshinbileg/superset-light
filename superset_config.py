@@ -47,6 +47,8 @@ WTF_CSRF_TIME_LIMIT = None
 # Тоон ачааллын тохиргоо
 SUPERSET_WEBSERVER_TIMEOUT = 300
 
+TALISMAN_ENABLED=True
+
 HTTP_HEADERS = {
     "X-Frame-Options": "ALLOW",
 }
@@ -56,3 +58,8 @@ CONTENT_SECURITY_POLICY = {
     "img-src": ["'self'", "data:", "blob:", "*"],
     "frame-ancestors": ["'self'", "http://localhost:3000", "http://localhost:3001", "http://localhost:8080"],
 }
+GUEST_ROLE_NAME="Gamma"
+GUEST_TOKEN_JWT_SECRET="superset"
+GUEST_TOKEN_JWT_ALGO="HS256A"
+GUEST_TOKEN_HEADER_NAME="X-GuestToken"
+GUEST_TOKEN_JWT_EXP_SECONDS=300
