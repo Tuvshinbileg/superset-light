@@ -48,5 +48,11 @@ WTF_CSRF_TIME_LIMIT = None
 SUPERSET_WEBSERVER_TIMEOUT = 300
 
 HTTP_HEADERS = {
-    'X-Frame-Options': 'ALLOWALL'
+    "X-Frame-Options": "ALLOW",
+}
+
+CONTENT_SECURITY_POLICY = {
+    "default-src": ["'self'", "'unsafe-inline'", "'unsafe-eval'", "data:", "blob:", "*"],
+    "img-src": ["'self'", "data:", "blob:", "*"],
+    "frame-ancestors": ["'self'", "http://localhost:3000", "http://localhost:3001", "http://localhost:8080"],
 }
