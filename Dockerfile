@@ -8,7 +8,10 @@ USER root
 RUN python3 -m ensurepip --upgrade
 
 # Install DB drivers into system site-packages
-RUN python3 -m pip install --no-cache-dir psycopg2-binary redis
+RUN python3 -m pip install --no-cache-dir \
+    psycopg2-binary \
+    flask-cors \
+    redis
 
 # Superset тохиргоо хийх
 
