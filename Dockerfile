@@ -12,14 +12,8 @@ RUN apt-get update && apt-get install -y \
     python3-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# Superset 5.0.0 нь өөрийн Python environment ашигладаг
-RUN python3 -m pip install --upgrade pip && \
-    python3 -m pip install --no-cache-dir \
-    psycopg2-binary==2.9.9 \
-    redis==5.0.1
-
 # Эсвэл pip directly
-RUN pip3 install --no-cache-dir \
+RUN pip install --no-cache-dir \
     psycopg2-binary \
     redis
 
