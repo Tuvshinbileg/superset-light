@@ -56,7 +56,7 @@ HTTP_HEADERS = {
 CONTENT_SECURITY_POLICY = {
     "default-src": ["'self'", "'unsafe-inline'", "'unsafe-eval'", "data:", "blob:", "*"],
     "img-src": ["'self'", "data:", "blob:", "*"],
-    "frame-ancestors": ["'self'", "http://localhost:3000", "http://localhost:3001", "http://localhost:8080"],
+    "frame-ancestors": ["'self'", "http://localhost:3000", "http://localhost:3001", "http://localhost:8080", "*"],
 }
 GUEST_ROLE_NAME="Gamma"
 GUEST_TOKEN_JWT_SECRET="superset"
