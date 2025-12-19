@@ -5,16 +5,10 @@ USER root
 
 # PostgreSQL драйвер нэмж суулгах
 
+RUN python3 -m ensurepip --upgrade
 
-RUN python - <<'EOF'
-import sys, subprocess
-subprocess.check_call([
-    sys.executable, "-m", "pip", "install",
-    "--no-cache-dir",
-    "psycopg2-binary",
-    "redis"
-])
-EOF
+# Install DB drivers into system site-packages
+RUN python3 -m pip install --no-cache-dir psycopg2-binary redis
 
 # Superset тохиргоо хийх
 
